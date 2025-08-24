@@ -211,8 +211,10 @@ canvas, svg {
         overflow-x: auto;
     }
 
+  
+
     .chart-container img {
-        width: 100%; /* prend toute la largeur disponible */
-        height: auto;
-    }
+    width: 100%;
+    height: auto;
+}
 }
