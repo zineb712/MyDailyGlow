@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MyDailyGlow{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e1; /* rose pâle */
+            color: #333;
+        }
+
+        header {
+            background-color: #ff69b4;
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            border-bottom: 4px solid #ff1493;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            background-color: #ffb6c1;
+            padding: 12px;
+            border-bottom: 2px solid #ff69b4;
+            flex-wrap: wrap; /* permet de passer à la ligne sur mobile */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #800040;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: 0.3s;
+            background-color: #ffc0cb;
+        }
+
+        nav a:hover {
+            background-color: #ff69b4;
+            color: white;
+        }
+
+        /* Conteneur principal */
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff0f5;
+            border-radius: 15px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        }
+
+        /* Pied de page */
+        footer {
+            text-align: center;
+            background-color: #ffb6c1;
+            padding: 10px;
+            margin-top: 30px;
+            border-top: 3px solid #ff69b4;
+            color: #800040;
+            font-weight: bold;
+        }
+
+        /* --- Responsive --- */
+        @media screen and (max-width: 768px) {
+            header {
+                font-size: 22px;
+                padding: 15px;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+
+            nav a {
+                display: block;
+                width: 90%;
+                text-align: center;
+            }
+
+            .container {
+                margin: 15px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header> 🎀 MyDailyGlow 🎀</header>
+    <nav>
+        <a href="{{ url_for('home') }}">🏠 Accueil</a>
+        <a href="{{ url_for('dashboard') }}">📋 Dashboard</a>
+        <a href="{{ url_for('history') }}">📖 Historique</a>
+        <a href="{{ url_for('manage_routines') }}">⚙️ Personnalisation</a>
+        <a href="{{ url_for('stats') }}">📊 Statistiques</a>
+        <a href="{{ url_for('products_page') }}">💄 Mes Produits</a>
+        <a href="{{ url_for('about') }}">ℹ️ À propos</a>
+    </nav>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer> ✨ MyDailyGlow - Prends soin de toi chaque jour ✨ </footer>
+</body>
+</html>
+

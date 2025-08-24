@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Historique{% endblock %}
+
+{% block content %}
+<div class="history-container">
+    <h2>📖 Ton historique beauté</h2>
+
+    {% if historique %}
+        {% for date_jour, periodes in historique.items() %}
+            <div class="history-day">
+                <h3 style="color:#ff69b4;">✨ {{ date_jour }} ✨</h3>
+                {% for periode, etapes in periodes.items() %}
+                    <p><strong>{{ periode|capitalize }} :</strong>
+                        {% if etapes %}
+                            {{ etapes | join(', ') }}
+                        {% else %}
+                            Rien de fait 😅
+                        {% endif %}
+                    </p>
+                {% endfor %}
+                <hr>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p style="color:#ff3399;">Aucune routine enregistrée pour le moment 💖</p>
+    {% endif %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Personnalisation{% endblock %}
+
+{% block content %}
+<div class="manage-container">
+    <h2>🌸 Personnalise tes routines 🌸</h2>
+    <p class="intro-text">Ajoute ou supprime les étapes de tes routines beauté pour les adapter à ton style 💖</p>
+
+    <form method="POST" class="routine-form">
+        <label for="periode">Choisis une période :</label>
+        <select name="periode" id="periode">
+            <option value="matin">🌞 Matin</option>
+            <option value="soir">🌙 Soir</option>
+        </select>
+
+        <label for="etape">Nouvelle étape :</label>
+        <input type="text" name="etape" id="etape" placeholder="Ex: Sérum hydratant ✨">
+
+        <div class="form-buttons">
+            <button type="submit" name="action" value="Ajouter" class="btn-add">➕ Ajouter</button>
+            <button type="submit" name="action" value="Supprimer" class="btn-delete">❌ Supprimer</button>
+        </div>
+    </form>
+
+    <h3>💖 Routines actuelles :</h3>
+    {% for periode, etapes in routines.items() %}
+        <h4>{{ periode|capitalize }}</h4>
+        <ul class="routine-list">
+            {% for etape in etapes %}
+            <li>🌸 {{ etape }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</div>
+
+<style>
+.manage-container {
+    background-color: #ffe4f2;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 700px;
+    text-align: center;
+}
+
+.intro-text {
+    font-style: italic;
+    color: #cc0066;
+}
+
+.routine-form {
+    margin: 20px 0;
+}
+
+.routine-form input, 
+.routine-form select {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #cc0066;
+    margin: 10px 0;
+}
+
+.form-buttons {
+    margin-top: 10px;
+}
+
+.btn-add {
+    background-color: #ff66b2;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-delete {
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+</style>
+{% endblock %}

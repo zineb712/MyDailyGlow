@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Statistiques{% endblock %}
+
+{% block content %}
+<div class="stats-container">
+    <h2>📊 Tes statistiques beauté</h2>
+<p>🌸 {{ pourcentage }}% de tes routines de la semaine faites 💕</p>
+<p>💆‍♀️ {{ masques_visage }} masques visage cette semaine</p>
+
+{% if image_base64 %}
+<hr>
+<h3>Graphique de progression 🌸</h3>
+<div class="chart-container">
+    <img src="data:image/png;base64,{{ image_base64 }}" alt="Graphique">
+</div>
+{% endif %}
+{% endblock %}
+

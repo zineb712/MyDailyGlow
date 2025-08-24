@@ -1,0 +1,47 @@
+ {% extends "base.html" %}
+
+{% block title %}Mes Produits{% endblock %}
+
+{% block content %}
+<div class="products-container">
+    <h2>💄 Mes Produits Beauté 💄</h2>
+
+    <form method="POST">
+        <input type="text" name="nom" placeholder="Nom du produit" required>
+        <select name="type">
+            <option>Sérum</option>
+            <option>Crème</option>
+            <option>Masque</option>
+            <option>Autre</option>
+        </select>
+        <input type="number" name="note" min="1" max="5" placeholder="Note ⭐" required>
+        <button type="submit">➕ Ajouter</button>
+    </form>
+
+    <h3>🌸 Ta collection :</h3>
+    <ul>
+        {% for p in produits %}
+        <li>
+            {{ p.nom }} ({{ p.type }}) ⭐ {{ p.note }}
+            <form method="POST" style="display:inline;">
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="nom_supp" value="{{ p.nom }}">
+                <button type="submit">❌</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<style>
+.products-container {
+    background: #ffe4f2;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+}
+</style>
+{% endblock %}
+

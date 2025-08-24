@@ -1,0 +1,218 @@
+/* === Styles généraux === */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffe6f0; /* rose pâle */
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* === Header === */
+header {
+    background-color: #ff69b4; /* rose vif */
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    border-bottom: 4px solid #ff1493;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ligne en haut du header */
+.header-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #ff66b2;
+    z-index: 1000;
+}
+
+/* === Menu de navigation === */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: #ffb6c1; /* rose clair */
+    padding: 12px 5px;
+    border-bottom: 2px solid #ff69b4;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* === Contenu principal === */
+main {
+    padding: 20px 10px;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* === Images accueil === */
+.accueil-container {
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.accueil-photos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.accueil-photo {
+    max-width: 100%;
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* === Tableaux responsive === */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+    word-wrap: break-word;
+}
+
+/* === Graphiques responsive === */
+canvas, svg {
+    max-width: 100%;
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+}
+
+/* === Responsive Design === */
+
+/* Tablettes et petits écrans ≤ 800px */
+@media (max-width: 800px) {
+    body {
+        font-size: 16px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    header, footer, main {
+        padding: 0 5px;
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    form, .content {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    input[type="checkbox"] {
+        transform: scale(1.1);
+        margin-right: 6px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    table {
+        overflow-x: auto;
+    }
+
+    .chart-container {
+    width: 100%;
+    overflow-x: auto; /* permet le scroll horizontal si nécessaire */
+    text-align: center;
+}
+
+.chart-container img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+}
+
+@media (max-width: 800px) {
+    /* Graphiques responsive pour tablettes et petits écrans */
+    canvas, svg {
+        max-width: 100%;
+        width: 100% !important;
+        height: auto !important;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Optionnel : permettre le scroll horizontal si le graphique est trop large */
+    .chart-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+     .chart-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .chart-container img {
+        width: 100%; /* prend toute la largeur disponible */
+        height: auto;
+    }
+}

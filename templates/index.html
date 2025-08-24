@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+<div class="accueil-container">
+    <p>{{ accueil_paragraphe }}</p>
+    <div class="accueil-photos">
+        {% for photo in photos %}
+            <img src="{{ url_for('custom_images', filename=photo) }}" 
+                 alt="Photo accueil" 
+                 class="photo-accueil">
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .accueil-photos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .photo-accueil {
+        max-width: 300px;  /* largeur maximale */
+        height: auto;      /* conserve les proportions */
+        border-radius: 10px;
+        box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+    }
+
+    .photo-accueil:hover {
+        transform: scale(1.05);
+    }
+</style>
+{% endblock %}
